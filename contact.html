@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | TechMitra Solutions</title>
+
+<!-- EmailJS & FontAwesome for Icons -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background-color: #f4f7f6;
+        padding-top: 80px;
+        color: #333;
+    }
+
+    /* Navbar */
+    nav {
+        background: #2c3e50;
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+    }
+    .logo span { color: #3498db; }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    h2.section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    h2.section-title::after {
+        content: '';
+        width: 60px;
+        height: 3px;
+        background: #3498db;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 1. Founders Section */
+    .founders-section {
+        margin: 40px 0 80px 0;
+    }
+
+    .founders-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .founder-card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        transition: 0.3s;
+    }
+
+    .founder-card:hover { transform: translateY(-10px); }
+
+    .founder-card img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 5px solid #f4f7f6;
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    /* 2. Contact & Social Section */
+    .connect-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 80px;
+    }
+
+    .info-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .info-card {
+        background: #3498db;
+        color: white;
+        padding: 20px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .info-card i { font-size: 1.5rem; }
+
+    .social-box {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .social-btn {
+        width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: 0.3s;
+    }
+
+    .whatsapp { background: #25d366; }
+    .instagram { background: #e4405f; }
+    .social-btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+    /* 3. Form Section */
+    .form-section {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        margin-bottom: 80px;
+    }
+
+    .form-img {
+        flex: 1;
+        background: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .form-container {
+        flex: 1.2;
+        padding: 50px;
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+    }
+
+    .submit-btn {
+        background: #2c3e50;
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    /* 4. Feedback System */
+    .feedback-section {
+        background: #fff;
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        margin-bottom: 50px;
+    }
+
+    .feedback-display {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        max-height: 250px;
+        overflow-y: auto;
+    }
+
+    .feedback-note {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .connect-grid, .form-section { grid-template-columns: 1fr; flex-direction: column; }
+        .form-img { min-height: 200px; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">Tech<span>Mitra</span></a>
+</nav>
+
+<div class="container">
+
+    <!-- 1. Founder Details -->
+    <section class="founders-section">
+        <h2 class="section-title">Meet Our Founders</h2>
+        <div class="founders-grid">
+            <div class="founder-card">
+                <img src="images/me.jpg" alt="Subhash Kumar">
+                <h3>Subhash Kumar</h3>
+                <p>Project Head</p>
+            </div>
+            <div class="founder-card">
+                <img src="images/ma.jpg" alt="XXXX">
+                <h3>XXXX</h3>
+                <p>Technical Strategy Head</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Contact Cards & Social Media -->
+    <section class="contact-social-section">
+        <h2 class="section-title">Direct Connect</h2>
+        <div class="connect-grid">
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Call Us</strong>
+                        <p>+91 919871976421</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <p>info@techmitrasolutions.com</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Location</strong>
+                        <p>Saharsa | Samastipur | Darbhanga</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-box">
+                <p>Chat with us for instant support</p>
+                <a href="https://wa.me/919871976421" class="social-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://instagram.com/techmitra" class="social-btn instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Form Section -->
+    <section class="form-section">
+        <div class="form-img"></div>
+        <div class="form-container">
+            <h2 style="margin-bottom: 20px;">Send a Message</h2>
+            <form id="contactForm" onsubmit="sendEmail(event)">
+                <div class="form-group"><input type="text" id="name" placeholder="Full Name" required></div>
+                <div class="form-group"><input type="email" id="email" placeholder="Email Address" required></div>
+                <div class="form-group"><textarea id="message" rows="4" placeholder="Your Query..."></textarea></div>
+                <button type="submit" class="submit-btn">Submit Inquiry</button>
+            </form>
+            <div id="successMsg" style="display:none; color: green; margin-top:10px; font-weight:bold;">✅ Message Sent!</div>
+        </div>
+    </section>
+
+    <!-- 4. Feedback System -->
+    <section class="feedback-section">
+        <h2 class="section-title">Client Feedback</h2>
+        <div class="feedback-display" id="feedbackList">
+            <div class="feedback-note">
+                <p><b>Amit Gupta:</b> "TechMitra team helped me scale my e-commerce business. Great service!"</p>
+            </div>
+        </div>
+
+        <h3>Leave Your Experience</h3>
+        <form id="feedbackForm" style="margin-top: 15px;">
+            <div class="form-group"><input type="text" id="fbName" placeholder="Your Name" required></div>
+            <div class="form-group"><textarea id="fbMsg" placeholder="Write your feedback..." required></textarea></div>
+            <button type="submit" class="submit-btn" style="width: auto; padding: 12px 30px;">Post Feedback</button>
+        </form>
+    </section>
+
+</div>
+
+<footer style="text-align: center; padding: 40px; background: #2c3e50; color: white;">
+    <p>&copy; 2026 TechMitra Solutions | All Rights Reserved</p>
+</footer>
+
+<script>
+// EmailJS Logic
+(function(){ emailjs.init("YOUR_PUBLIC_KEY"); })();
+
+function sendEmail(e) {
+    e.preventDefault();
+    emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
+        from_name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+    }).then(() => {
+        document.getElementById("successMsg").style.display = "block";
+        document.getElementById("contactForm").reset();
+    });
+}
+
+// Feedback Logic
+document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('fbName').value;
+    const msg = document.getElementById('fbMsg').value;
+
+    const div = document.createElement('div');
+    div.className = 'feedback-note';
+    div.innerHTML = `<p><b>${name}:</b> "${msg}"</p>`;
+
+    document.getElementById('feedbackList').appendChild(div);
+    this.reset();
+});
+</script>
+
+</body>
+</html>

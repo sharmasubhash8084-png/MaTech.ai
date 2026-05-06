@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMitra Solutions | Edu, Health & E-com</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #3498db;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 5%;
+            text-align: center;
+            background: #f4f4f4;
+        }
+
+        .services h2 {
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Work Process Section */
+        .process {
+            padding: 100px 5%;
+            text-align: center;
+            background: #fff;
+        }
+
+        .process h2 {
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+
+        .process-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .process-step {
+            padding: 20px;
+        }
+
+        .process-step img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+
+        .process-step h4 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack {
+            padding: 100px 5%;
+            text-align: center;
+            background: #fdfdfd;
+        }
+
+        .tech-category {
+            margin-bottom: 50px;
+        }
+
+        .tech-category h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tech-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .tech-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            width: 140px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.4s ease;
+            border: 1px solid #eee;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-10px);
+            border-color: #3498db;
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.15);
+        }
+
+        .tech-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 12px;
+        }
+
+        .tech-item p {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .value-section {
+            padding: 110px 5%;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .value-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .value-section p.sub {
+            color: #666;
+            margin-bottom: 55px;
+            font-size: 1.05rem;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+        }
+
+        .value-card {
+            background: #f8f9fb;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid #eee;
+            transition: 0.35s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 3px;
+            top: 0;
+            left: 0;
+            background: #3498db;
+            transition: 0.4s;
+        }
+
+        .value-card:hover::before {
+            width: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 35px rgba(52,152,219,0.25);
+        }
+
+        .value-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .value-card p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Nav Bar -->
+    <nav>
+        <a href="index.html" class="logo">Tech<span>Mitra</span></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>TechMitra Solutions</h1>
+        <p>Your Vision, Our Technology. Expert Website & App Development for Education, Healthcare, and E-commerce.</p>
+        <a href="about.html" class="btn">About Us</a>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Specialized Sectors</h2>
+        <div class="services-container">
+            <div class="card">
+                <h3>Education</h3>
+                <p>We build robust LMS platforms, school management systems, and interactive student applications.</p>
+            </div>
+            <div class="card">
+                <h3>E-commerce</h3>
+                <p>Scaling your business with high-performance online stores and secure payment gateway solutions.</p>
+            </div>
+            <div class="card">
+                <h3>Healthcare</h3>
+                <p>Secure patient dashboards, telemedicine applications, and efficient appointment booking systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Section -->
+    <section class="value-section">
+        <h2>Why Businesses Choose TechMitra</h2>
+        <p class="sub">
+            We turn your ideas into smart digital systems that attract customers, automate operations, and scale your revenue.
+        </p>
+
+        <div class="value-grid">
+            <div class="value-card">
+                <h3>💻 Modern Digital Presence</h3>
+                <p>We build fast, responsive, and professional websites that establish trust and ensure your business is accessible 24/7.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>📈 Real Business Growth</h3>
+                <p>Our focus goes beyond design—we help you generate more leads, acquire more customers, and drive online sales.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>🤖 Smart AI Integration</h3>
+                <p>We integrate AI tools to help you analyze customer behavior, manage data, and make informed business decisions automatically.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>⚙️ Process Automation</h3>
+                <p>We automate repetitive tasks like inquiries and data handling, ensuring your business runs smoothly with minimal effort.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>📱 Instant Customer Connectivity</h3>
+                <p>Connect with customers directly via WhatsApp and email, ensuring you never miss an important lead or opportunity.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>🚀 End-to-End Solutions</h3>
+                <p>From conceptualization to execution—we manage the technical details so you can focus on growing your core business.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Process Section -->
+    <section class="process">
+        <h2>Our Work Process</h2>
+        <div class="process-container">
+            <div class="process-step">
+                <img src="https://cdn-icons-png.flaticon.com/512/1067/1067555.png" alt="Consultation">
+                <h4>1. Consultation</h4>
+                <p>We analyze your ideas and requirements in depth to ensure a clear understanding of your vision.</p>
+            </div>
+
+            <div class="process-step">
+                <img src="https://cdn-icons-png.flaticon.com/512/4359/4359042.png" alt="Planning">
+                <h4>2. Planning</h4>
+                <p>A comprehensive roadmap and design architecture are developed for your project.</p>
+            </div>
+
+            <div class="process-step">
+                <img src="https://cdn-icons-png.flaticon.com/512/1336/1336494.png" alt="Development">
+                <h4>3. Development</h4>
+                <p>Our engineering team begins coding using the latest technologies and industry best practices.</p>
+            </div>
+
+            <div class="process-step">
+                <img src="https://cdn-icons-png.flaticon.com/512/1541/1541425.png" alt="Launch">
+                <h4>4. Launch</h4>
+                <p>After rigorous testing and quality assurance, your website or application is deployed live.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack" id="technologies">
+        <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Our Technology Stack</h2>
+        <p style="margin-bottom: 50px; color: #666;">We utilize modern tools to build fast, secure, and scalable digital solutions.</p>
+
+        <!-- Web Development -->
+        <div class="tech-category">
+            <h3>Web Development</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                    <p>HTML5 / CSS3</p>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">
+                    <p>JavaScript</p>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                    <p>React.js</p>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node">
+                    <p>Node.js</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- App Development -->
+        <div class="tech-category">
+            <h3>Mobile App Development</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter">
+                    <p>Flutter</p>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native">
+                    <p>React Native</p>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">
+                    <p>Android (Java)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backend & Data -->
+        <div class="tech-category">
+            <h3>Backend & Data Analytics</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                    <p>Python</p>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                    <p>SQL / MySQL</p>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                    <p>MongoDB</p>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Power BI">
+                    <p>Power BI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TechMitra Solutions | Built with ❤️ by Subhash</p>
+        <p>Contact: info@techmitrasolutions.com</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

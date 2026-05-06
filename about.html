@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | TechMitra Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span { color: #3498db; }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+        /* Hero Section */
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .about-hero h1 { font-size: 3rem; margin-bottom: 15px; }
+        .about-hero p { font-size: 1.2rem; max-width: 800px; padding: 0 20px; }
+
+        /* Mission & AI Section */
+        .content-section { padding: 80px 10%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+
+        .vision-card {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-bottom: 4px solid #3498db;
+        }
+
+        .vision-card i { font-size: 2.5rem; color: #3498db; margin-bottom: 20px; }
+        .vision-card h3 { margin-bottom: 15px; color: #2c3e50; }
+
+        /* Founder Section */
+        .founder-section {
+            background: #2c3e50;
+            color: white;
+            padding: 80px 10%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .founder-img {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .founder-img img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 8px solid rgba(52, 152, 219, 0.3);
+            object-fit: cover;
+        }
+
+        .founder-text { flex: 2; min-width: 300px; }
+        .founder-text h2 { font-size: 2.5rem; margin-bottom: 10px; color: #3498db; }
+        .founder-text .subtitle { font-weight: bold; margin-bottom: 20px; display: block; color: #bdc3c7; }
+
+        /* AI Integration Focus */
+        .ai-focus {
+            padding: 80px 10%;
+            text-align: center;
+            background: #fdfdfd;
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .ai-item {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .ai-item:hover { background: #3498db; color: white; }
+        .ai-item i { font-size: 2rem; margin-bottom: 15px; }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .btn-cta {
+            background: #3498db;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .btn-cta:hover { transform: scale(1.05); background: #2980b9; }
+
+        @media (max-width: 768px) {
+            .about-hero h1 { font-size: 2rem; }
+            .founder-section { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Tech<span>Mitra</span></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="about-hero">
+        <h1>Empowering Businesses Through Innovation</h1>
+        <p>Bridging the gap between traditional operations and the digital future in the heart of Bihar and beyond.</p>
+    </header>
+
+    <section class="content-section">
+        <div class="grid">
+            <div class="vision-card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+                <p>To digitize local businesses in Our local area providing them with professional tools to compete in the modern economy.</p>
+            </div>
+            <div class="vision-card">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>To become the leading technology partner for educators, healthcare providers, and wholesalers by delivering scalable, AI-driven solutions.</p>
+            </div>
+            <div class="vision-card">
+                <i class="fas fa-heart"></i>
+                <h3>Our Values</h3>
+                <p>Integrity, transparency, and a deep-rooted commitment to regional growth. We build systems that are easy to use and hard to outgrow.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="founder-section">
+        <div class="founder-img">
+            <!-- Replace with your professional portrait -->
+            <img src="images/me.jpg" alt="Subhash Kumar">
+        </div>
+        <div class="founder-text">
+            <h2>Subhash Kumar</h2>
+            <span class="subtitle">Founder & Lead Developer | B.Tech Computer Science</span>
+            <p>With a background in Computer Science Engineering and a passion for data analytics, I founded TechMitra Solutions to solve real-world business problems.</p>
+            <p style="margin-top: 15px;">Having worked with modern tech stacks like Python, SQL, and Power BI, my goal is to bring high-end automation and AI integration to the local markets of my home state, Bihar. At TechMitra, we don't just build websites; we build engines for growth.</p>
+        </div>
+    </section>
+
+    <section class="ai-focus">
+        <h2>AI-Driven Business Growth</h2>
+        <p>We leverage Artificial Intelligence to give your business a competitive edge.</p>
+
+        <div class="ai-grid">
+            <div class="ai-item">
+                <i class="fas fa-robot"></i>
+                <h4>Smart Automation</h4>
+                <p>Automate repetitive inquiries and bookings using intelligent workflows.</p>
+            </div>
+            <div class="ai-item">
+                <i class="fas fa-chart-line"></i>
+                <h4>Data Insights</h4>
+                <p>Use Python-based analytics to understand your sales trends and customer behavior.</p>
+            </div>
+            <div class="ai-item">
+                <i class="fas fa-comments"></i>
+                <h4>AI Chatbots</h4>
+                <p>Provide 24/7 customer support on your website with AI-driven chat systems.</p>
+            </div>
+            <div class="ai-item">
+                <i class="fas fa-magic"></i>
+                <h4>Predictive Inventory</h4>
+                <p>For wholesalers, we build systems that predict when you need to restock your items.</p>
+            </div>
+        </div>
+
+        <a href="contact.html" class="btn-cta">Let's Grow Together</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 TechMitra Solutions | Professional Digital Transformation</p>
+        <p>Expertise in Education, Healthcare, and E-commerce Ecosystems</p>
+    </footer>
+
+</body>
+</html>
