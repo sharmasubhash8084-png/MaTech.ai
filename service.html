@@ -1,495 +1,968 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education Ecosystem | TechMitra Solutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --basic: #27ae60;
-            --growth: #3498db;
-            --ultimate: #e67e22;
-            --light: #f8f9fa;
-        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f0f2f5; color: #333; line-height: 1.6; padding-top: 80px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Navbar */
-        nav { background: var(--primary); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
-        .logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
-        .logo span { color: var(--growth); }
+<title>TechMitra Solutions | Smart Digital Ecosystem</title>
 
-        /* Header */
-        .header-section {
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 152, 219, 0.9)),
-                        url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover; background-position: center; color: white;
-            padding: 80px 5% 60px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        }
+<meta name="description"
+content="MaTech.ai Solutions provides modern Education ERP, Healthcare HMS, E-commerce platforms, AI automation systems, and scalable business solutions.">
 
-        /* Tier Grid Layout */
-        .tier-section { padding: 40px 2%; margin-top: -50px; }
-        .tier-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            max-width: 1440px;
-            margin: 0 auto;
-            align-items: stretch;
-        }
+<meta name="keywords"
+content="Education ERP, Healthcare Management System, B2B E-commerce, AI Solutions, TechMitra">
 
-        /* Card Styling */
-        @keyframes cardEntry {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+<meta name="author" content="MaTech.ai">
 
-        .tier-card {
-            background: white; border-radius: 20px; padding: 35px 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative; display: flex; flex-direction: column;
-            flex: 1; min-width: 340px; border: 1px solid rgba(0,0,0,0.05);
-            animation: cardEntry 0.8s ease forwards;
-        }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        .tier-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+<style>
 
-        /* Color Themes for Cards */
-        .basic { border-top: 6px solid var(--basic); }
-        .growth { border-top: 6px solid var(--growth); }
-        .ultimate { border-top: 6px solid var(--ultimate); background: #fffdfb; }
+:root{
+    --primary:#0f172a;
+    --secondary:#1e293b;
+    --accent:#3b82f6;
+    --light:#f8fafc;
+    --success:#22c55e;
+    --warning:#f59e0b;
+    --purple:#8b5cf6;
+    --text:#334155;
+}
 
-        /* Badges & Icons */
-        .tier-badge {
-            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-            padding: 6px 20px; border-radius: 25px; color: white; font-size: 0.75rem;
-            font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-        }
-        .bg-basic { background: var(--basic); }
-        .bg-growth { background: var(--growth); }
-        .bg-ultimate { background: var(--ultimate); }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
 
-        .tier-icon { font-size: 2.5rem; margin-bottom: 15px; text-align: center; }
-        .color-basic { color: var(--basic); }
-        .color-growth { color: var(--growth); }
-        .color-ultimate { color: var(--ultimate); }
+html{
+    scroll-behavior:smooth;
+}
 
-        .tier-name { font-size: 1.8rem; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 5px; }
-        .tier-subtitle { font-size: 0.85rem; color: #7f8c8d; text-align: center; margin-bottom: 20px; font-weight: 500; }
+body{
+    background:#f1f5f9;
+    color:var(--text);
+}
 
-        /* Access & Goal Boxes */
-        .info-box { background: #f8f9fa; padding: 12px; border-radius: 12px; margin-bottom: 20px; }
-        .info-box.access { border-left: 4px solid var(--primary); }
-        .info-box.goal { border-left: 4px solid #95a5a6; background: #fffef0; }
-        .info-box h4 { font-size: 0.7rem; text-transform: uppercase; color: #95a5a6; margin-bottom: 2px; }
-        .info-box p { font-size: 0.85rem; font-weight: 700; color: var(--primary); }
+/* NAVBAR */
 
-        /* Feature List */
-        .feature-list { list-style: none; margin-bottom: 30px; flex-grow: 1; }
-        .feature-list li {
-            font-size: 0.88rem; color: #444; margin-bottom: 12px;
-            display: flex; align-items: flex-start; gap: 10px;
-            padding-bottom: 8px; border-bottom: 1px solid #f1f1f1;
-        }
-        .feature-list li i { margin-top: 4px; font-size: 0.9rem; }
-        .plus-tag { font-weight: 700; color: var(--growth); font-size: 0.75rem; margin-bottom: 10px; display: block; }
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(15,23,42,0.92);
+    backdrop-filter:blur(10px);
+    padding:18px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-        /* Buttons */
-        .btn-select {
-            padding: 15px; text-align: center; text-decoration: none; border-radius: 12px;
-            font-weight: 700; transition: 0.3s; color: white; display: block;
-        }
-        .btn-basic { background: var(--basic); }
-        .btn-growth { background: var(--growth); }
-        .btn-ultimate { background: var(--ultimate); }
-        .btn-select:hover { opacity: 0.9; transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.logo{
+    font-size:1.7rem;
+    font-weight:800;
+    color:#fff;
+    text-decoration:none;
+}
 
-        /* Staggered Delay */
-        .tier-card:nth-child(1) { animation-delay: 0.1s; }
-        .tier-card:nth-child(2) { animation-delay: 0.3s; }
-        .tier-card:nth-child(3) { animation-delay: 0.5s; }
+.logo span{
+    color:var(--accent);
+}
 
-        @media (max-width: 1200px) { .tier-grid { flex-wrap: wrap; } .tier-card { min-width: 45%; } }
-        @media (max-width: 768px) { .tier-card { min-width: 100%; } .header-section { clip-path: none; } }
-    </style>
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:0.95rem;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:var(--accent);
+}
+
+/* HERO */
+
+.hero{
+    padding:160px 8% 100px;
+    background:
+    linear-gradient(rgba(15,23,42,0.9),
+    rgba(15,23,42,0.88)),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400');
+
+    background-size:cover;
+    background-position:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.hero p{
+    max-width:850px;
+    margin:auto;
+    color:#cbd5e1;
+    font-size:1.15rem;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 32px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:var(--accent);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#2563eb;
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,0.3);
+    color:white;
+}
+
+.btn-secondary:hover{
+    background:white;
+    color:black;
+}
+
+/* TRUST STRIP */
+
+.trust-strip{
+    background:white;
+    padding:28px 5%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.trust-item{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.trust-item i{
+    color:var(--accent);
+    font-size:1.5rem;
+}
+
+/* SECTION */
+
+.section{
+    padding:100px 6%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:2.8rem;
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#64748b;
+    max-width:800px;
+    margin:auto;
+}
+
+/* CARDS */
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:35px;
+}
+
+.card{
+    background:white;
+    border-radius:24px;
+    padding:40px 30px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.06);
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 45px rgba(0,0,0,0.12);
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+}
+
+.basic::before{
+    background:var(--success);
+}
+
+.growth::before{
+    background:var(--accent);
+}
+
+.enterprise::before{
+    background:var(--warning);
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 18px;
+    border-radius:30px;
+    color:white;
+    font-size:0.75rem;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.basic .badge{
+    background:var(--success);
+}
+
+.growth .badge{
+    background:var(--accent);
+}
+
+.enterprise .badge{
+    background:var(--warning);
+}
+
+.card h3{
+    font-size:2rem;
+    margin-bottom:12px;
+    color:var(--primary);
+}
+
+.card p{
+    color:#64748b;
+    margin-bottom:25px;
+}
+
+.price{
+    font-size:2.8rem;
+    font-weight:800;
+    margin-bottom:25px;
+    color:var(--primary);
+}
+
+.price span{
+    font-size:1rem;
+    color:#64748b;
+}
+
+.features{
+    list-style:none;
+    margin-bottom:35px;
+}
+
+.features li{
+    margin-bottom:14px;
+    display:flex;
+    gap:12px;
+    line-height:1.6;
+}
+
+.features i{
+    color:var(--accent);
+    margin-top:5px;
+}
+
+.card-btn{
+    display:inline-block;
+    width:100%;
+    text-align:center;
+    padding:15px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:700;
+    color:white;
+    background:var(--primary);
+    transition:0.3s;
+}
+
+.card-btn:hover{
+    background:var(--accent);
+}
+
+/* COMPARISON */
+
+.compare-table{
+    overflow-x:auto;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.05);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:20px;
+    text-align:center;
+    border-bottom:1px solid #e2e8f0;
+}
+
+th{
+    background:var(--primary);
+    color:white;
+}
+
+/* CTA */
+
+.cta{
+    background:
+    linear-gradient(135deg,#0f172a,#1e40af);
+    color:white;
+    padding:100px 8%;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.cta p{
+    max-width:700px;
+    margin:auto;
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+.cta-buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* FAQ */
+
+.faq{
+    background:white;
+}
+
+.faq-item{
+    background:#f8fafc;
+    padding:28px;
+    border-radius:16px;
+    margin-bottom:20px;
+}
+
+.faq-item h4{
+    margin-bottom:12px;
+    color:var(--primary);
+}
+
+/* FOOTER */
+
+footer{
+    background:var(--primary);
+    color:white;
+    padding:80px 6% 30px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.footer-grid h3,
+.footer-grid h4{
+    margin-bottom:20px;
+}
+
+.footer-grid ul{
+    list-style:none;
+}
+
+.footer-grid li{
+    margin-bottom:12px;
+}
+
+.footer-grid a{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.footer-bottom{
+    margin-top:50px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    text-align:center;
+    color:#94a3b8;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:2rem;
+    text-decoration:none;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    z-index:999;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .section-title h2{
+        font-size:2rem;
+    }
+
+    .cta h2{
+        font-size:2.2rem;
+    }
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <nav>
-        <a href="index.html" class="logo">Tech<span>Mitra</span></a>
-    </nav>
+<!-- NAVBAR -->
 
-    <header class="header-section">
-        <h1>Smart Education Ecosystem</h1>
-        <p>Aapke institute ki har zaroorat ke liye customized digital solutions.</p>
-    </header>
+<nav>
 
-    <section class="tier-section">
-        <div class="tier-grid">
+<a href="index.html" class="logo">
+Ma<span>Tech.ai</span>
+</a>
 
-            <!-- 1. BASIC PLAN -->
-            <div class="tier-card basic">
-                <span class="tier-badge bg-basic">Stage 1</span>
-                <div class="tier-icon color-basic"><i class="fas fa-globe"></i></div>
-                <h3 class="tier-name">Basic Plan</h3>
-                <p class="tier-subtitle">Static Presence & Inquiry</p>
+<ul class="nav-links">
 
-                <div class="info-box access">
-                    <h4>🔒 Access</h4>
-                    <p>Public View (No Login)</p>
-                </div>
+<li><a href="index.html">Home</a></li>
+<li><a href="portfollio.html">Portfolio</a></li>
+<li><a href="contact.html">Contact</a></li>
 
-                <ul class="feature-list">
-                    <li><i class="fas fa-check-circle color-basic"></i> Complete Institute Details (About, Courses)</li>
-                    <li><i class="fas fa-check-circle color-basic"></i> Public Course & Batch Info</li>
-                    <li><i class="fas fa-check-circle color-basic"></i> WhatsApp/Email Inquiry System</li>
-                    <li><i class="fas fa-check-circle color-basic"></i> Photo & Event Gallery</li>
-                    <li><i class="fas fa-check-circle color-basic"></i> SEO-Friendly Architecture</li>
-                    <li><i class="fas fa-check-circle color-basic"></i> Google Maps Integration</li>
-                    <li><i class="fas fa-check-circle color-basic"></i> Mobile Responsive Design</li>
-                </ul>
+</ul>
 
-                <div class="info-box goal">
-                    <h4>🎯 Goal</h4>
-                    <p>Online Identity + Lead Generation</p>
-                </div>
-                <a href="#" class="btn-select btn-basic">Select Basic</a>
-            </div>
+</nav>
 
-            <!-- 2. GROWTH PLAN -->
-            <div class="tier-card growth">
-                <span class="tier-badge bg-growth">Stage 2</span>
-                <div class="tier-icon color-growth"><i class="fas fa-chart-line"></i></div>
-                <h3 class="tier-name">Growth Plan</h3>
-                <p class="tier-subtitle">Management & Student Access</p>
+<!-- HERO -->
 
-                <div class="info-box access">
-                    <h4>🔒 Access</h4>
-                    <p>Admin + Student Login</p>
-                </div>
+<section class="hero">
 
-                <ul class="feature-list">
-                    <span class="plus-tag">+ All Basic Plan Features</span>
-                    <li><i class="fas fa-plus-circle color-growth"></i> Student Signup/Login System</li>
-                    <li><i class="fas fa-plus-circle color-growth"></i> Comprehensive Admin Dashboard</li>
-                    <li><i class="fas fa-plus-circle color-growth"></i> Online Admission System</li>
-                    <li><i class="fas fa-plus-circle color-growth"></i> Fee Tracking & History</li>
-                    <li><i class="fas fa-plus-circle color-growth"></i> Weekly/Monthly Online Tests</li>
-                    <li><i class="fas fa-plus-circle color-growth"></i> PDF/Notes/Video Material Upload</li>
-                    <li><i class="fas fa-plus-circle color-growth"></i> WhatsApp/SMS Notifications</li>
-                </ul>
+<h1>Enterprise Digital Solutions For Modern Businesses</h1>
 
-                <div class="info-box goal">
-                    <h4>🎯 Goal</h4>
-                    <p>Management + Digital Learning</p>
-                </div>
-                <a href="#" class="btn-select btn-growth">Select Growth</a>
-            </div>
+<p>
 
-            <!-- 3. ULTIMATE PLAN -->
-            <div class="tier-card ultimate">
-                <span class="tier-badge bg-ultimate">Stage 3</span>
-                <div class="tier-icon color-ultimate"><i class="fas fa-robot"></i></div>
-                <h3 class="tier-name">Ultimate Plan</h3>
-                <p class="tier-subtitle">Full ERP + AI Automation</p>
+Build scalable Education ERP, Healthcare HMS,
+B2B E-commerce platforms, AI automation systems,
+and cloud-ready digital infrastructure for your business.
 
-                <div class="info-box access">
-                    <h4>🔒 Access</h4>
-                    <p>Admin | Teacher | Student | Parent</p>
-                </div>
+</p>
 
-                <ul class="feature-list">
-                    <span class="plus-tag">+ All Growth Plan Features</span>
-                    <li><i class="fas fa-bolt color-ultimate"></i> Teacher Attendance & Parent Alerts</li>
-                    <li><i class="fas fa-bolt color-ultimate"></i> Online Fee Payment Gateway</li>
-                    <li><i class="fas fa-bolt color-ultimate"></i> AI Student Performance Analysis</li>
-                    <li><i class="fas fa-bolt color-ultimate"></i> Weak Subject Detection (AI)</li>
-                    <li><i class="fas fa-bolt color-ultimate"></i> Auto Certificate & Result (PDF)</li>
-                    <li><i class="fas fa-bolt color-ultimate"></i> Role-based Messaging System</li>
-                    <li><i class="fas fa-bolt color-ultimate"></i> Smart Reporting (Export PDF)</li>
-                </ul>
+<div class="hero-buttons">
 
-                <div class="info-box goal">
-                    <h4>🎯 Goal</h4>
-                    <p>Fully Automated Smart ERP + AI</p>
-                </div>
-                <a href="#" class="btn-select btn-ultimate">Select Ultimate</a>
-            </div>
+<a href="contact.html" class="btn btn-primary">
+Get Started
+</a>
 
-        </div>
-    </section>
+<a href="portfollio.html" class="btn btn-secondary">
+View Portfolio
+</a>
 
-<!-- E-commerce / Wholesale B2B Solution Section -->
-<section class="tier-section">
-    <div style="text-align: center; margin-bottom: 50px;">
-        <h2 style="color: var(--primary); font-size: 2.5rem; font-weight: 800; letter-spacing: -1px;">B2B E-commerce Solutions</h2>
-        <p style="color: #7f8c8d; font-size: 1.1rem; max-width: 700px; margin: 10px auto;">Empowering wholesalers and retailers with scalable digital infrastructure.</p>
-    </div>
+</div>
 
-    <div class="tier-grid">
-
-        <!-- 🟢 STAGE 1: DIGITAL PRESENCE (The Entry Plan) -->
-        <div class="tier-card basic" style="border-top: 6px solid #10ac84;">
-            <span class="tier-badge" style="background: #10ac84;">Stage 1: Presence</span>
-            <div class="tier-icon" style="color: #10ac84;"><i class="fas fa-store"></i></div>
-            <h3 class="tier-name">Starter Digital</h3>
-            <p class="tier-subtitle">Smart Product Cataloging</p>
-
-            <div class="info-box access">
-                <h4>🔒 Access Control</h4>
-                <p>Public Catalog (Open Access)</p>
-            </div>
-
-            <ul class="feature-list">
-                <li><i class="fas fa-check-double" style="color:#10ac84"></i> <b>Interactive Catalog:</b> High-quality product display with dynamic pricing.</li>
-                <li><i class="fas fa-check-double" style="color:#10ac84"></i> <b>WhatsApp Lead System:</b> Instant inquiry routing to sales team.</li>
-                <li><i class="fas fa-check-double" style="color:#10ac84"></i> <b>Smart Categories:</b> Multi-level grouping for easy product discovery.</li>
-                <li><i class="fas fa-check-double" style="color:#10ac84"></i> <b>Local SEO:</b> Google Business & Map integration for area-wise visibility.</li>
-                <li><i class="fas fa-check-double" style="color:#10ac84"></i> <b>Responsive UI:</b> Optimized for low-end mobile devices and browsers.</li>
-            </ul>
-
-            <div class="info-box goal">
-                <h4>🎯 Primary Goal</h4>
-                <p>Zero-friction product browsing and lead generation.</p>
-            </div>
-            <a href="#" class="btn-select" style="background: #10ac84;">Deploy Presence</a>
-        </div>
-
-        <!-- 🟡 STAGE 2: BUSINESS OPERATIONS (The Management Plan) -->
-        <div class="tier-card growth" style="border-top: 6px solid #2e86de;">
-            <span class="tier-badge" style="background: #2e86de;">Stage 2: Operations</span>
-            <div class="tier-icon" style="color: #2e86de;"><i class="fas fa-tasks"></i></div>
-            <h3 class="tier-name">Business Pro</h3>
-            <p class="tier-subtitle">Wholesale & Order Management</p>
-
-            <div class="info-box access">
-                <h4>🔒 Access Control</h4>
-                <p>Admin + Verified Retailer Login</p>
-            </div>
-
-            <ul class="feature-list">
-                <span class="plus-tag" style="color:#2e86de">+ Includes Stage 1 Features</span>
-                <li><i class="fas fa-plus-circle" style="color:#2e86de"></i> <b>Retailer Portal:</b> Personalized dashboards for frequent buyers.</li>
-                <li><i class="fas fa-plus-circle" style="color:#2e86de"></i> <b>Real-time Inventory:</b> Automated stock level tracking and alerts.</li>
-                <li><i class="fas fa-plus-circle" style="color:#2e86de"></i> <b>Order Lifecycle:</b> Status updates from 'Processing' to 'Dispatched'.</li>
-                <li><i class="fas fa-plus-circle" style="color:#2e86de"></i> <b>Credit Ledger:</b> Digital tracking of outstanding dues and payments.</li>
-                <li><i class="fas fa-plus-circle" style="color:#2e86de"></i> <b>Wholesale Pricing:</b> Tiered pricing based on order volume.</li>
-            </ul>
-
-            <div class="info-box goal">
-                <h4>🎯 Primary Goal</h4>
-                <p>Streamlining internal operations and buyer retention.</p>
-            </div>
-            <a href="#" class="btn-select" style="background: #2e86de;">Upgrade to Pro</a>
-        </div>
-
-        <!-- 🔵 STAGE 3: ENTERPRISE B2B (The Automation Plan) -->
-        <div class="tier-card ultimate" style="border-top: 6px solid #f39c12;">
-            <span class="tier-badge" style="background: #f39c12;">Stage 3: Enterprise</span>
-            <div class="tier-icon" style="color: #f39c12;"><i class="fas fa-cogs"></i></div>
-            <h3 class="tier-name">Ultimate ERP</h3>
-            <p class="tier-subtitle">Supply Chain Automation</p>
-
-            <div class="info-box access">
-                <h4>🔒 Access Control</h4>
-                <p>Multi-Role (Owner, Staff, Delivery)</p>
-            </div>
-
-            <ul class="feature-list">
-                <span class="plus-tag" style="color:#f39c12">+ Includes Stage 2 Features</span>
-                <li><i class="fas fa-bolt" style="color:#f39c12"></i> <b>Smart Billing:</b> GST-compliant digital invoicing with PDF export.</li>
-                <li><i class="fas fa-bolt" style="color:#f39c12"></i> <b>Automated Reminders:</b> WhatsApp/SMS triggers for payment collections.</li>
-                <li><i class="fas fa-bolt" style="color:#f39c12"></i> <b>Staff Management:</b> Field-force tracking for delivery personnel.</li>
-                <li><i class="fas fa-bolt" style="color:#f39c12"></i> <b>Bulk Discounts:</b> Algorithmic price drops for bulk procurement.</li>
-                <li><i class="fas fa-bolt" style="color:#f39c12"></i> <b>Sales Analytics:</b> Weekly performance and high-demand item reports.</li>
-            </ul>
-
-            <div class="info-box goal">
-                <h4>🎯 Primary Goal</h4>
-                <p>Complete business automation with data-driven insights.</p>
-            </div>
-            <a href="#" class="btn-select" style="background: #f39c12;">Go Enterprise</a>
-        </div>
-
-    </div>
 </section>
 
+<!-- TRUST -->
 
-    <!-- Healthcare / Clinic Management Solution Section -->
-<section class="tier-section">
-    <div style="text-align: center; margin-bottom: 50px;">
-        <h2 style="color: var(--primary); font-size: 2.5rem; font-weight: 800; letter-spacing: -1px;">Smart Healthcare Solutions</h2>
-        <p style="color: #7f8c8d; font-size: 1.1rem; max-width: 700px; margin: 10px auto;">Transforming traditional clinics into modern, patient-centric healthcare centers.</p>
-    </div>
+<section class="trust-strip">
 
-    <div class="tier-grid">
+<div class="trust-item">
+<i class="fas fa-shield-alt"></i>
+<span>Secure Infrastructure</span>
+</div>
 
-        <!-- 🟢 STAGE 1: DIGITAL CLINIC (The Visibility Plan) -->
-        <div class="tier-card basic" style="border-top: 6px solid #00b894;">
-            <span class="tier-badge" style="background: #00b894;">Stage 1: Presence</span>
-            <div class="tier-icon" style="color: #00b894;"><i class="fas fa-user-md"></i></div>
-            <h3 class="tier-name">Clinic Lite</h3>
-            <p class="tier-subtitle">Digital Identity & Inquiry</p>
+<div class="trust-item">
+<i class="fas fa-cloud"></i>
+<span>Cloud Ready Systems</span>
+</div>
 
-            <div class="info-box access">
-                <h4>🔒 Access Control</h4>
-                <p>Public View (Doctor Profile)</p>
-            </div>
+<div class="trust-item">
+<i class="fas fa-mobile-alt"></i>
+<span>Responsive Design</span>
+</div>
 
-            <ul class="feature-list">
-                <li><i class="fas fa-check-double" style="color:#00b894"></i> <b>Professional Profile:</b> Doctor’s qualifications, specialization, and experience.</li>
-                <li><i class="fas fa-check-double" style="color:#00b894"></i> <b>Service Listing:</b> Detailed list of treatments and facilities available.</li>
-                <li><i class="fas fa-check-double" style="color:#00b894"></i> <b>WhatsApp Appointment:</b> Direct patient booking requests via WhatsApp.</li>
-                <li><i class="fas fa-check-double" style="color:#00b894"></i> <b>Clinic Location:</b> Integration with Google Maps for easy navigation.</li>
-                <li><i class="fas fa-check-double" style="color:#00b894"></i> <b>SEO Optimized:</b> Be visible when patients search for "Best Doctor in [City]".</li>
-            </ul>
+<div class="trust-item">
+<i class="fas fa-robot"></i>
+<span>AI Integration</span>
+</div>
 
-            <div class="info-box goal">
-                <h4>🎯 Primary Goal</h4>
-                <p>Build trust and make it easy for patients to find the clinic.</p>
-            </div>
-            <a href="#" class="btn-select" style="background: #00b894;">Launch Clinic</a>
-        </div>
-
-        <!-- 🟡 STAGE 2: CARE FLOW (The Management Plan) -->
-        <div class="tier-card growth" style="border-top: 6px solid #0984e3;">
-            <span class="tier-badge" style="background: #0984e3;">Stage 2: Management</span>
-            <div class="tier-icon" style="color: #0984e3;"><i class="fas fa-calendar-check"></i></div>
-            <h3 class="tier-name">Clinic Pro</h3>
-            <p class="tier-subtitle">Appointment & Patient Records</p>
-
-            <div class="info-box access">
-                <h4>🔒 Access Control</h4>
-                <p>Doctor + Receptionist + Patient Login</p>
-            </div>
-
-            <ul class="feature-list">
-                <span class="plus-tag" style="color:#0984e3">+ Includes Stage 1 Features</span>
-                <li><i class="fas fa-plus-circle" style="color:#0984e3"></i> <b>Smart Scheduling:</b> Manage OPD timings and prevent overbooking.</li>
-                <li><i class="fas fa-plus-circle" style="color:#0984e3"></i> <b>Patient Dashboards:</b> Patients can view their visit history and prescriptions.</li>
-                <li><i class="fas fa-plus-circle" style="color:#0984e3"></i> <b>Digital EMR:</b> Maintain electronic medical records for quick reference.</li>
-                <li><i class="fas fa-plus-circle" style="color:#0984e3"></i> <b>Queue Management:</b> Live status of waiting list for visiting patients.</li>
-                <li><i class="fas fa-plus-circle" style="color:#0984e3"></i> <b>Feedback System:</b> Collect and display patient reviews to boost reputation.</li>
-            </ul>
-
-            <div class="info-box goal">
-                <h4>🎯 Primary Goal</h4>
-                <p>Reduce waiting time and organize patient data efficiently.</p>
-            </div>
-            <a href="#" class="btn-select" style="background: #0984e3;">Upgrade to Pro</a>
-        </div>
-
-        <!-- 🔵 STAGE 3: SMART HOSPITAL (The Automation Plan) -->
-        <div class="tier-card ultimate" style="border-top: 6px solid #6c5ce7;">
-            <span class="tier-badge" style="background: #6c5ce7;">Stage 3: Enterprise</span>
-            <div class="tier-icon" style="color: #6c5ce7;"><i class="fas fa-hospital-symbol"></i></div>
-            <h3 class="tier-name">Ultimate HMS</h3>
-            <p class="tier-subtitle">Full Hospital ERP & Automation</p>
-
-            <div class="info-box access">
-                <h4>🔒 Access Control</h4>
-                <p>Doctor | Staff | Lab | Pharmacy | Patient</p>
-            </div>
-
-            <ul class="feature-list">
-                <span class="plus-tag" style="color:#6c5ce7">+ Includes Stage 2 Features</span>
-                <li><i class="fas fa-bolt" style="color:#6c5ce7"></i> <b>Automated Billing:</b> Instant invoices for consultation, labs, and pharmacy.</li>
-                <li><i class="fas fa-bolt" style="color:#6c5ce7"></i> <b>Prescription Generator:</b> Generate digital PDF prescriptions in seconds.</li>
-                <li><i class="fas fa-bolt" style="color:#6c5ce7"></i> <b>Smart Reminders:</b> Auto-SMS/WhatsApp for follow-up visits & medicines.</li>
-                <li><i class="fas fa-bolt" style="color:#6c5ce7"></i> <b>Lab Integration:</b> Test reports directly uploaded to patient’s profile.</li>
-                <li><i class="fas fa-bolt" style="color:#6c5ce7"></i> <b>Analytics:</b> Monthly reports on patient footfall and revenue trends.</li>
-            </ul>
-
-            <div class="info-box goal">
-                <h4>🎯 Primary Goal</h4>
-                <p>Complete paperless automation for a smart healthcare center.</p>
-            </div>
-            <a href="#" class="btn-select" style="background: #6c5ce7;">Go Ultimate</a>
-        </div>
-
-    </div>
 </section>
 
+<!-- PRICING -->
 
-  <!-- Final Maintenance & Plans Section -->
-<section style="padding: 60px 5%; background-color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-    <div style="max-width: 1100px; margin: 0 auto;">
+<section class="section">
 
-        <!-- Section Header -->
-        <div style="text-align: center; margin-bottom: 50px;">
-            <h2 style="color: #2c3e50; font-size: 2.2rem; font-weight: 800;">Service Plans & Maintenance</h2>
-            <p style="color: #7f8c8d; font-size: 1.1rem;">Scalable solutions designed for your specific business needs.</p>
-        </div>
+<div class="section-title">
 
-        <!-- Flexible Pricing Logic (Price Hidden) -->
-        <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 40px; border-radius: 20px; text-align: center; border: 1px solid #dee2e6; margin-bottom: 60px;">
-            <h3 style="color: #2c3e50; font-size: 1.8rem; margin-bottom: 15px;">Flexible Pricing for Every Business</h3>
-            <p style="color: #636e72; font-size: 1.1rem; line-height: 1.6; max-width: 850px; margin: 0 auto;">
-                Because every institution and business has unique requirements, we offer customized pricing based on your scale, data storage, and specific feature needs.
-                <span style="color: #27ae60; font-weight: 700;">Contact us for a proposal tailored to your budget.</span>
-            </p>
+<h2>Flexible Startup Pricing</h2>
 
-            <div style="margin-top: 30px;">
-                <a href="https://wa.me/YOUR_NUMBER" style="text-decoration: none; background: #25D366; color: white; padding: 15px 35px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
-                    <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> Get Your Custom Quote Now
-                </a>
-            </div>
-        </div>
+<p>
 
-        <!-- Maintenance & Support Overview (Using your provided list) -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+Affordable plans designed for startups,
+institutes, clinics, wholesalers, and growing businesses.
 
-            <!-- Education Maintenance Summary -->
-            <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid #3498db;">
-                <h4 style="color: #3498db; margin-bottom: 15px;"><i class="fas fa-graduation-cap"></i> Education Support</h4>
-                <ul style="padding-left: 20px; color: #555; font-size: 0.95rem; line-height: 1.8;">
-                    <li>High-Speed Website Hosting</li>
-                    <li>Automated Monthly Backups</li>
-                    <li>Security & Bug Fixes</li>
-                    <li>WhatsApp & SMS API Integration</li>
-                    <li>Server Uptime Monitoring (24/7)</li>
-                </ul>
-            </div>
+</p>
 
-            <!-- E-commerce Maintenance Summary -->
-            <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid #e67e22;">
-                <h4 style="color: #e67e22; margin-bottom: 15px;"><i class="fas fa-shopping-cart"></i> E-commerce Support</h4>
-                <ul style="padding-left: 20px; color: #555; font-size: 0.95rem; line-height: 1.8;">
-                    <li>Inventory & Stock Management Updates</li>
-                    <li>Payment Gateway Security Patches</li>
-                    <li>Order Tracking System Maintenance</li>
-                    <li>Server Scalability for High Traffic</li>
-                    <li>Daily Database Cloud Backups</li>
-                </ul>
-            </div>
+</div>
 
-            <!-- Healthcare Maintenance Summary -->
-            <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid #2ecc71;">
-                <h4 style="color: #2ecc71; margin-bottom: 15px;"><i class="fas fa-hospital"></i> Healthcare Support</h4>
-                <ul style="padding-left: 20px; color: #555; font-size: 0.95rem; line-height: 1.8;">
-                    <li>HIPAA Compliant Patient Data Storage</li>
-                    <li>Real-time Appointment Sync Support</li>
-                    <li>EMR/Lab Report Integration Updates</li>
-                    <li>Video Call API Maintenance</li>
-                    <li>Priority Technical Assistance</li>
-                </ul>
-            </div>
+<div class="card-grid">
 
-        </div>
+<!-- BASIC -->
 
-        <!-- Final Disclosure -->
-        <p style="text-align: center; margin-top: 40px; color: #95a5a6; font-size: 0.85rem;">
-            *Note: Setup & Development is a one-time investment. Annual Maintenance Charges (AMC) apply to cover ongoing hosting, security, and premium API services.
-        </p>
-    </div>
+<div class="card basic">
+
+<div class="badge">STARTER</div>
+
+<h3>Basic Website</h3>
+
+<p>
+Professional business website with modern UI and lead generation system.
+</p>
+
+<div class="price">
+₹9,999
+<br>
+<span>Starting Price</span>
+</div>
+
+<ul class="features">
+
+<li><i class="fas fa-check-circle"></i>Responsive Website</li>
+
+<li><i class="fas fa-check-circle"></i>WhatsApp Integration</li>
+
+<li><i class="fas fa-check-circle"></i>Contact Forms</li>
+
+<li><i class="fas fa-check-circle"></i>SEO Structure</li>
+
+<li><i class="fas fa-check-circle"></i>Gallery & Content Pages</li>
+
+<li><i class="fas fa-check-circle"></i>Hosting Assistance</li>
+
+</ul>
+
+<a href="contact.html" class="card-btn">
+Start Project
+</a>
+
+</div>
+
+<!-- GROWTH -->
+
+<div class="card growth">
+
+<div class="badge">BUSINESS</div>
+
+<h3>Management System</h3>
+
+<p>
+Digital management system with admin panel and automation features.
+</p>
+
+<div class="price">
+₹24,999
+<br>
+<span>Starting Price</span>
+</div>
+
+<ul class="features">
+
+<li><i class="fas fa-check-circle"></i>Admin Dashboard</li>
+
+<li><i class="fas fa-check-circle"></i>Student/User Login</li>
+
+<li><i class="fas fa-check-circle"></i>Online Forms</li>
+
+<li><i class="fas fa-check-circle"></i>Notifications</li>
+
+<li><i class="fas fa-check-circle"></i>Secure Database</li>
+
+<li><i class="fas fa-check-circle"></i>Analytics System</li>
+
+</ul>
+
+<a href="contact.html" class="card-btn">
+Request Demo
+</a>
+
+</div>
+
+<!-- ENTERPRISE -->
+
+<div class="card enterprise">
+
+<div class="badge">ENTERPRISE</div>
+
+<h3>AI Powered ERP</h3>
+
+<p>
+Advanced enterprise-grade automation and AI integrated architecture.
+</p>
+
+<div class="price">
+₹59,999+
+<br>
+<span>Custom Enterprise Pricing</span>
+</div>
+
+<ul class="features">
+
+<li><i class="fas fa-check-circle"></i>ERP Architecture</li>
+
+<li><i class="fas fa-check-circle"></i>AI Automation</li>
+
+<li><i class="fas fa-check-circle"></i>Cloud Deployment</li>
+
+<li><i class="fas fa-check-circle"></i>Payment Gateway</li>
+
+<li><i class="fas fa-check-circle"></i>Multi Role System</li>
+
+<li><i class="fas fa-check-circle"></i>Advanced Analytics</li>
+
+</ul>
+
+<a href="contact.html" class="card-btn">
+Contact Sales
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-    <footer>
-        <p style="text-align: center; padding: 40px; background: var(--primary); color: white;">&copy; 2026 TechMitra Solutions | Excellence in Innovation</p>
-    </footer>
+<!-- COMPARISON -->
+
+<section class="section">
+
+<div class="section-title">
+
+<h2>Plan Comparison</h2>
+
+</div>
+
+<div class="compare-table">
+
+<table>
+
+<tr>
+
+<th>Features</th>
+<th>Basic</th>
+<th>Business</th>
+<th>Enterprise</th>
+
+</tr>
+
+<tr>
+
+<td>Responsive UI</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+
+</tr>
+
+<tr>
+
+<td>Admin Dashboard</td>
+<td>—</td>
+<td>✔</td>
+<td>✔</td>
+
+</tr>
+
+<tr>
+
+<td>Database System</td>
+<td>—</td>
+<td>✔</td>
+<td>✔</td>
+
+</tr>
+
+<tr>
+
+<td>AI Automation</td>
+<td>—</td>
+<td>—</td>
+<td>✔</td>
+
+</tr>
+
+<tr>
+
+<td>Payment Gateway</td>
+<td>—</td>
+<td>Optional</td>
+<td>✔</td>
+
+</tr>
+
+<tr>
+
+<td>Cloud Infrastructure</td>
+<td>Optional</td>
+<td>✔</td>
+<td>✔</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="section faq">
+
+<div class="section-title">
+
+<h2>Frequently Asked Questions</h2>
+
+</div>
+
+<div class="faq-item">
+
+<h4>How long does development take?</h4>
+
+<p>
+Basic projects usually take 1–2 weeks while advanced ERP systems may require 1–3 months.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h4>Do you provide hosting & deployment?</h4>
+
+<p>
+Yes, domain setup, hosting, deployment, and cloud assistance are available.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h4>Is maintenance included?</h4>
+
+<p>
+Optional monthly or yearly maintenance plans are available for security and updates.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h4>Can mobile apps also be developed?</h4>
+
+<p>
+Yes, Android and cross-platform mobile applications are also supported.
+</p>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>Ready To Digitize Your Business?</h2>
+
+<p>
+
+Build scalable systems for education,
+healthcare, and e-commerce businesses with MaTech.ai.
+
+</p>
+
+<div class="cta-buttons">
+
+<a href="contact.html" class="btn btn-primary">
+Book Consultation
+</a>
+
+<a href="portfollio.html" class="btn btn-secondary">
+View Portfolio
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<h3>MaTech.ai</h3>
+
+<p>
+
+Modern digital solutions for startups,
+institutes, clinics, wholesalers, and enterprises.
+
+</p>
+
+</div>
+
+<div>
+
+<h4>Services</h4>
+
+<ul>
+
+<li><a href="#">Education ERP</a></li>
+<li><a href="#">Healthcare HMS</a></li>
+<li><a href="#">B2B E-commerce</a></li>
+<li><a href="#">AI Solutions</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>Quick Links</h4>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+<li><a href="#">Pricing</a></li>
+<li><a href="#">Portfolio</a></li>
+<li><a href="#">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>Contact</h4>
+
+<ul>
+
+<li>Email: subhash@matech.ai</li>
+<li>WhatsApp: +91 9871976421</li>
+<li>Support: 24/7 Available</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+© 2026 MaTech.ai | Built For Modern Businesses
+
+</div>
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/9871976421"
+class="whatsapp">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<script>
+
+window.addEventListener("scroll",function(){
+
+const nav=document.querySelector("nav");
+
+if(window.scrollY>50){
+
+nav.style.background="rgba(15,23,42,0.98)";
+
+}else{
+
+nav.style.background="rgba(15,23,42,0.92)";
+
+}
+
+});
+
+</script>
 
 </body>
 </html>
