@@ -1,0 +1,592 @@
+# Full Industry-Level Portfolio HTML Code
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | TechMitra Solutions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#222;
+line-height:1.6;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#0f172a;
+padding:18px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+box-shadow:0 2px 20px rgba(0,0,0,0.1);
+}
+
+.logo{
+font-size:1.7rem;
+font-weight:800;
+color:white;
+text-decoration:none;
+}
+
+.logo span{
+color:#38bdf8;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-size:0.95rem;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#38bdf8;
+}
+
+.hero{
+height:100vh;
+background:linear-gradient(rgba(15,23,42,0.82),rgba(15,23,42,0.82)),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+color:white;
+}
+
+.hero h1{
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:800px;
+font-size:1.2rem;
+margin-bottom:35px;
+}
+
+.btn{
+background:#38bdf8;
+padding:14px 35px;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-weight:700;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#0284c7;
+transform:translateY(-3px);
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:2.8rem;
+color:#0f172a;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:#666;
+font-size:1rem;
+}
+
+.portfolio{
+padding:110px 6%;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 35px rgba(0,0,0,0.08);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 20px 45px rgba(0,0,0,0.15);
+}
+
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.card-content{
+padding:28px;
+}
+
+.badge{
+display:inline-block;
+padding:6px 14px;
+background:#e0f2fe;
+color:#0284c7;
+font-size:0.8rem;
+border-radius:30px;
+font-weight:700;
+margin-bottom:15px;
+}
+
+.card-content h3{
+font-size:1.5rem;
+margin-bottom:12px;
+color:#0f172a;
+}
+
+.card-content p{
+font-size:0.95rem;
+color:#555;
+margin-bottom:18px;
+}
+
+.features{
+list-style:none;
+margin-bottom:25px;
+}
+
+.features li{
+margin-bottom:10px;
+font-size:0.9rem;
+color:#444;
+display:flex;
+gap:10px;
+align-items:flex-start;
+}
+
+.features li i{
+color:#0ea5e9;
+margin-top:4px;
+}
+
+.tech-stack{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:20px;
+}
+
+.tech-stack span{
+background:#f1f5f9;
+padding:8px 14px;
+border-radius:20px;
+font-size:0.8rem;
+font-weight:600;
+}
+
+.stats{
+padding:100px 6%;
+background:#0f172a;
+color:white;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.stat-box{
+background:rgba(255,255,255,0.05);
+padding:35px;
+border-radius:18px;
+backdrop-filter:blur(8px);
+}
+
+.stat-box h3{
+font-size:3rem;
+color:#38bdf8;
+margin-bottom:10px;
+}
+
+.process{
+padding:110px 6%;
+background:white;
+}
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+}
+
+.process-card{
+background:#f8fafc;
+padding:35px;
+border-radius:20px;
+text-align:center;
+transition:0.3s;
+}
+
+.process-card:hover{
+transform:translateY(-8px);
+}
+
+.process-card i{
+font-size:2.5rem;
+color:#0ea5e9;
+margin-bottom:20px;
+}
+
+.testimonials{
+padding:110px 6%;
+background:#eef6fb;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.testimonial-card{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.testimonial-card h4{
+margin-top:20px;
+color:#0f172a;
+}
+
+.cta{
+padding:110px 6%;
+background:linear-gradient(135deg,#0284c7,#0f172a);
+text-align:center;
+color:white;
+}
+
+.cta h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+footer{
+background:#020617;
+padding:50px 6%;
+text-align:center;
+color:white;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:2.7rem;
+}
+
+nav ul{
+display:none;
+}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="index.html" class="logo">Ma<span>Tech.ai</span></a>
+<ul>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#testimonials">Testimonials</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<h1>Digital Portfolio</h1>
+<p>Professional web applications, ERP systems, healthcare solutions, education ecosystems, and modern e-commerce platforms built with scalable technologies.</p>
+<a href="#projects" class="btn">Explore Projects</a>
+</section>
+
+<section class="portfolio" id="projects">
+<div class="section-title">
+<h2>Featured Projects</h2>
+<p>Enterprise-ready projects designed for real-world business operations.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Coaching Management">
+<div class="card-content">
+<span class="badge">Education ERP</span>
+<h3>Coaching Management System</h3>
+<p>Advanced coaching ERP platform for admissions, attendance, fees, online tests, student dashboards, and performance analytics.</p>
+<ul class="features">
+<li><i class="fas fa-check-circle"></i> Student & Admin Dashboard</li>
+<li><i class="fas fa-check-circle"></i> Online Fee Management</li>
+<li><i class="fas fa-check-circle"></i> Attendance & Result System</li>
+<li><i class="fas fa-check-circle"></i> AI Performance Reports</li>
+</ul>
+<div class="tech-stack">
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+<span>Python</span>
+<span>MySQL</span>
+</div>
+<a href="#" class="btn">View Project</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952" alt="Library">
+<div class="card-content">
+<span class="badge">Library ERP</span>
+<h3>Library Management System</h3>
+<p>Smart library platform with digital book records, issue-return tracking, QR scanning, and automated notifications.</p>
+<ul class="features">
+<li><i class="fas fa-check-circle"></i> Book Inventory Tracking</li>
+<li><i class="fas fa-check-circle"></i> Student Login System</li>
+<li><i class="fas fa-check-circle"></i> Due Date Notifications</li>
+<li><i class="fas fa-check-circle"></i> Search & Filter Engine</li>
+</ul>
+<div class="tech-stack">
+<span>React</span>
+<span>Node.js</span>
+<span>MongoDB</span>
+<span>REST API</span>
+</div>
+<a href="#" class="btn">View Project</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1584515933487-779824d29309" alt="Blood Bank">
+<div class="card-content">
+<span class="badge">Healthcare</span>
+<h3>Blood Bank Management System</h3>
+<p>Digital healthcare solution for donor management, blood availability tracking, emergency requests, and hospital integration.</p>
+<ul class="features">
+<li><i class="fas fa-check-circle"></i> Donor Database</li>
+<li><i class="fas fa-check-circle"></i> Emergency Blood Request</li>
+<li><i class="fas fa-check-circle"></i> Live Availability Status</li>
+<li><i class="fas fa-check-circle"></i> Hospital Connectivity</li>
+</ul>
+<div class="tech-stack">
+<span>Flask</span>
+<span>MySQL</span>
+<span>Bootstrap</span>
+<span>Python</span>
+</div>
+<a href="#" class="btn">View Project</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4" alt="Ecommerce">
+<div class="card-content">
+<span class="badge">E-Commerce</span>
+<h3>Wholesale E-Commerce Platform</h3>
+<p>Modern B2B e-commerce platform with inventory management, retailer dashboards, analytics, and secure payment integration.</p>
+<ul class="features">
+<li><i class="fas fa-check-circle"></i> Retailer Login Portal</li>
+<li><i class="fas fa-check-circle"></i> Smart Product Dashboard</li>
+<li><i class="fas fa-check-circle"></i> Order & Billing System</li>
+<li><i class="fas fa-check-circle"></i> Sales Analytics</li>
+</ul>
+<div class="tech-stack">
+<span>React</span>
+<span>Node.js</span>
+<span>MongoDB</span>
+<span>Stripe</span>
+</div>
+<a href="#" class="btn">View Project</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85" alt="Diary System">
+<div class="card-content">
+<span class="badge">Productivity</span>
+<h3>Diary Management System</h3>
+<p>Secure cloud-based diary platform for note storage, scheduling, reminders, task tracking, and encrypted personal management.</p>
+<ul class="features">
+<li><i class="fas fa-check-circle"></i> Secure User Login</li>
+<li><i class="fas fa-check-circle"></i> Daily Task Planning</li>
+<li><i class="fas fa-check-circle"></i> Notes & Reminder System</li>
+<li><i class="fas fa-check-circle"></i> Cloud Sync</li>
+</ul>
+<div class="tech-stack">
+<span>Firebase</span>
+<span>React</span>
+<span>CSS</span>
+<span>JavaScript</span>
+</div>
+<a href="#" class="btn">View Project</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521791136064-7986c2920216" alt="School ERP">
+<div class="card-content">
+<span class="badge">School ERP</span>
+<h3>School Management System</h3>
+<p>Complete school automation platform including teacher dashboards, attendance, report cards, transport management, and communication.</p>
+<ul class="features">
+<li><i class="fas fa-check-circle"></i> Parent & Teacher Portal</li>
+<li><i class="fas fa-check-circle"></i> Exam & Result Module</li>
+<li><i class="fas fa-check-circle"></i> Attendance Tracking</li>
+<li><i class="fas fa-check-circle"></i> Smart Notifications</li>
+</ul>
+<div class="tech-stack">
+<span>HTML</span>
+<span>JS</span>
+<span>MySQL</span>
+<span>PHP</span>
+</div>
+<a href="#" class="btn">View Project</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="stats">
+<div class="section-title">
+<h2 style="color:white;">Business Impact</h2>
+<p style="color:#cbd5e1;">Professional solutions focused on growth and scalability.</p>
+</div>
+
+<div class="stats-grid">
+<div class="stat-box">
+<h3>20+</h3>
+<p>Enterprise Modules</p>
+</div>
+
+<div class="stat-box">
+<h3>99%</h3>
+<p>Responsive UI</p>
+</div>
+
+<div class="stat-box">
+<h3>24/7</h3>
+<p>Support Ready</p>
+</div>
+
+<div class="stat-box">
+<h3>100%</h3>
+<p>Scalable Architecture</p>
+</div>
+</div>
+</section>
+
+<section class="process" id="process">
+<div class="section-title">
+<h2>Development Process</h2>
+<p>Structured workflow for premium-quality project delivery.</p>
+</div>
+
+<div class="process-grid">
+<div class="process-card">
+<i class="fas fa-comments"></i>
+<h3>Requirement Analysis</h3>
+<p>Understanding business goals, workflows, and project requirements.</p>
+</div>
+
+<div class="process-card">
+<i class="fas fa-pencil-ruler"></i>
+<h3>UI/UX Planning</h3>
+<p>Professional user-focused interface and workflow design planning.</p>
+</div>
+
+<div class="process-card">
+<i class="fas fa-code"></i>
+<h3>Development</h3>
+<p>Building scalable frontend, backend, APIs, and cloud integrations.</p>
+</div>
+
+<div class="process-card">
+<i class="fas fa-rocket"></i>
+<h3>Deployment</h3>
+<p>Production deployment with optimization, security, and maintenance.</p>
+</div>
+</div>
+</section>
+
+<section class="testimonials" id="testimonials">
+<div class="section-title">
+<h2>Client Feedback</h2>
+<p>What businesses expect from premium digital services.</p>
+</div>
+
+<div class="testimonial-grid">
+<div class="testimonial-card">
+<p>“Professional management system with smooth workflow and responsive interface. Perfect for coaching institutes.”</p>
+<h4>Education Sector</h4>
+</div>
+
+<div class="testimonial-card">
+<p>“Inventory management and retailer dashboards improved operational efficiency significantly.”</p>
+<h4>Wholesale Business</h4>
+</div>
+
+<div class="testimonial-card">
+<p>“Digital healthcare management reduced manual work and improved patient coordination.”</p>
+<h4>Healthcare Industry</h4>
+</div>
+</div>
+</section>
+
+<section class="cta" id="contact">
+<h2>Ready To Build Your Next Project?</h2>
+<p style="max-width:700px;margin:0 auto 35px;">From startup websites to enterprise management systems, MaTech.ai helps businesses build scalable digital ecosystems.</p>
+<a href="contact.html" class="btn">Contact Now</a>
+</section>
+
+<footer>
+<p>© 2026 MaTech.ai | Portfolio</p>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+document.querySelector(this.getAttribute('href')).scrollIntoView({
+behavior: 'smooth'
+});
+});
+});
+</script>
+
+</body>
+</html>
+
