@@ -3,364 +3,1389 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | TechMitra Solutions</title>
 
-<!-- EmailJS & FontAwesome for Icons -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<title>Contact Us | MaTech.ai</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', sans-serif;
-    }
 
-    body {
-        background-color: #f4f7f6;
-        padding-top: 80px;
-        color: #333;
-    }
+:root{
+--primary:#0f172a;
+--secondary:#1e293b;
+--accent:#38bdf8;
+--light:#f8fafc;
+--text:#334155;
+--white:#ffffff;
+--success:#22c55e;
+--gradient:linear-gradient(135deg,#0f172a,#1e40af);
+}
 
-    /* Navbar */
-    nav {
-        background: #2c3e50;
-        padding: 1rem 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
 
-    .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #fff;
-        text-decoration: none;
-    }
-    .logo span { color: #3498db; }
+body{
+background:#f1f5f9;
+color:var(--text);
+overflow-x:hidden;
+}
 
-    .container {
-        max-width: 1100px;
-        margin: auto;
-        padding: 20px;
-    }
+/* NAVBAR */
 
-    h2.section-title {
-        text-align: center;
-        font-size: 2.2rem;
-        margin-bottom: 40px;
-        position: relative;
-    }
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(15,23,42,0.95);
+backdrop-filter:blur(12px);
+z-index:1000;
+box-shadow:0 5px 30px rgba(0,0,0,0.08);
+}
 
-    h2.section-title::after {
-        content: '';
-        width: 60px;
-        height: 3px;
-        background: #3498db;
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+.logo{
+font-size:1.8rem;
+font-weight:800;
+color:white;
+text-decoration:none;
+}
 
-    /* 1. Founders Section */
-    .founders-section {
-        margin: 40px 0 80px 0;
-    }
+.logo span{
+color:var(--accent);
+}
 
-    .founders-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-    }
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
 
-    .founder-card {
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        text-align: center;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        transition: 0.3s;
-    }
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:0.95rem;
+font-weight:500;
+transition:0.3s;
+position:relative;
+}
 
-    .founder-card:hover { transform: translateY(-10px); }
+.nav-links a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:var(--accent);
+transition:0.3s;
+}
 
-    .founder-card img {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 20px;
-        border: 5px solid #f4f7f6;
-        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-    }
+.nav-links a:hover::after{
+width:100%;
+}
 
-    /* 2. Contact & Social Section */
-    .connect-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-        margin-bottom: 80px;
-    }
+.nav-links a:hover{
+color:var(--accent);
+}
 
-    .info-cards {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
+/* HERO */
 
-    .info-card {
-        background: #3498db;
-        color: white;
-        padding: 20px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
+.hero{
+min-height:100vh;
+background:
+linear-gradient(rgba(15,23,42,0.85),rgba(15,23,42,0.9)),
+url('https://images.unsplash.com/photo-1497366754035-f200968a6e72');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:120px 20px 80px;
+color:white;
+position:relative;
+overflow:hidden;
+}
 
-    .info-card i { font-size: 1.5rem; }
+.hero::before{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:rgba(56,189,248,0.1);
+border-radius:50%;
+top:-200px;
+right:-100px;
+filter:blur(80px);
+}
 
-    .social-box {
-        background: white;
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-    }
+.hero-content{
+max-width:900px;
+z-index:2;
+}
 
-    .social-btn {
-        width: 100%;
-        padding: 15px;
-        border-radius: 10px;
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        transition: 0.3s;
-    }
+.hero h1{
+font-size:4rem;
+font-weight:800;
+margin-bottom:25px;
+line-height:1.2;
+}
 
-    .whatsapp { background: #25d366; }
-    .instagram { background: #e4405f; }
-    .social-btn:hover { opacity: 0.9; transform: scale(1.02); }
+.hero p{
+font-size:1.1rem;
+line-height:1.9;
+color:#dbeafe;
+margin-bottom:40px;
+}
 
-    /* 3. Form Section */
-    .form-section {
-        background: #fff;
-        border-radius: 20px;
-        overflow: hidden;
-        display: flex;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        margin-bottom: 80px;
-    }
+.hero-btns{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
 
-    .form-img {
-        flex: 1;
-        background: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80');
-        background-size: cover;
-        background-position: center;
-    }
+.btn{
+padding:15px 35px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+transition:0.4s;
+display:inline-flex;
+align-items:center;
+gap:10px;
+}
 
-    .form-container {
-        flex: 1.2;
-        padding: 50px;
-    }
+.btn-primary{
+background:var(--accent);
+color:white;
+}
 
-    .form-group { margin-bottom: 20px; }
-    .form-group input, .form-group textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        outline: none;
-    }
+.btn-primary:hover{
+transform:translateY(-5px);
+background:#0284c7;
+}
 
-    .submit-btn {
-        background: #2c3e50;
-        color: white;
-        border: none;
-        padding: 15px 40px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        width: 100%;
-    }
+.btn-outline{
+border:2px solid rgba(255,255,255,0.2);
+color:white;
+}
 
-    /* 4. Feedback System */
-    .feedback-section {
-        background: #fff;
-        padding: 50px;
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        margin-bottom: 50px;
-    }
+.btn-outline:hover{
+background:white;
+color:var(--primary);
+}
 
-    .feedback-display {
-        background: #f9f9f9;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 30px;
-        max-height: 250px;
-        overflow-y: auto;
-    }
+/* SECTION TITLE */
 
-    .feedback-note {
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-    }
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
 
-    /* Responsive */
-    @media (max-width: 768px) {
-        .connect-grid, .form-section { grid-template-columns: 1fr; flex-direction: column; }
-        .form-img { min-height: 200px; }
-    }
+.section-title h2{
+font-size:3rem;
+color:var(--primary);
+margin-bottom:15px;
+font-weight:800;
+}
+
+.section-title p{
+max-width:700px;
+margin:auto;
+line-height:1.8;
+color:#64748b;
+}
+
+/* CONTACT INFO */
+
+.contact-info{
+padding:110px 7%;
+background:white;
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.info-card{
+background:linear-gradient(135deg,#ffffff,#f8fafc);
+padding:40px 30px;
+border-radius:25px;
+text-align:center;
+transition:0.4s;
+border:1px solid #e2e8f0;
+position:relative;
+overflow:hidden;
+}
+
+.info-card::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:4px;
+background:var(--accent);
+transform:scaleX(0);
+transition:0.4s;
+}
+
+.info-card:hover::before{
+transform:scaleX(1);
+}
+
+.info-card:hover{
+transform:translateY(-12px);
+box-shadow:0 20px 50px rgba(0,0,0,0.08);
+}
+
+.info-icon{
+width:80px;
+height:80px;
+margin:auto;
+margin-bottom:25px;
+background:rgba(56,189,248,0.1);
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:2rem;
+color:var(--accent);
+}
+
+.info-card h3{
+margin-bottom:15px;
+color:var(--primary);
+}
+
+.info-card p{
+line-height:1.8;
+color:#64748b;
+}
+
+/* CONTACT SECTION */
+
+.contact-section{
+padding:110px 7%;
+background:#f8fafc;
+}
+
+.contact-wrapper{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:start;
+}
+
+/* FORM */
+
+.contact-form{
+background:white;
+padding:50px;
+border-radius:30px;
+box-shadow:0 15px 40px rgba(0,0,0,0.05);
+}
+
+.form-title{
+margin-bottom:35px;
+}
+
+.form-title h3{
+font-size:2rem;
+color:var(--primary);
+margin-bottom:10px;
+}
+
+.form-group{
+margin-bottom:25px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:10px;
+font-weight:600;
+color:var(--primary);
+}
+
+.form-control{
+width:100%;
+padding:16px 18px;
+border-radius:12px;
+border:1px solid #cbd5e1;
+outline:none;
+font-size:0.95rem;
+transition:0.3s;
+background:#f8fafc;
+}
+
+.form-control:focus{
+border-color:var(--accent);
+box-shadow:0 0 0 4px rgba(56,189,248,0.15);
+background:white;
+}
+
+textarea.form-control{
+height:160px;
+resize:none;
+}
+
+.submit-btn{
+width:100%;
+padding:16px;
+border:none;
+background:var(--gradient);
+color:white;
+font-size:1rem;
+font-weight:600;
+border-radius:12px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.submit-btn:hover{
+transform:translateY(-4px);
+box-shadow:0 15px 30px rgba(30,64,175,0.25);
+}
+
+/* SIDEBAR */
+
+.contact-side{
+display:flex;
+flex-direction:column;
+gap:30px;
+}
+
+.side-card{
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,0.05);
+}
+
+.side-card h3{
+margin-bottom:20px;
+font-size:1.5rem;
+color:var(--primary);
+}
+
+.side-card p{
+line-height:1.9;
+color:#64748b;
+}
+
+/* SOCIAL */
+
+.social-links{
+display:flex;
+gap:15px;
+margin-top:25px;
+flex-wrap:wrap;
+}
+
+.social-links a{
+width:55px;
+height:55px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:15px;
+background:#f1f5f9;
+color:var(--primary);
+font-size:1.2rem;
+transition:0.4s;
+text-decoration:none;
+}
+
+.social-links a:hover{
+background:var(--accent);
+color:white;
+transform:translateY(-5px);
+}
+
+/* WHY CHOOSE */
+
+.choose{
+padding:110px 7%;
+background:white;
+}
+
+.choose-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.choose-card{
+background:#f8fafc;
+padding:35px;
+border-radius:25px;
+transition:0.4s;
+border:1px solid #e2e8f0;
+}
+
+.choose-card:hover{
+transform:translateY(-10px);
+background:white;
+box-shadow:0 20px 50px rgba(0,0,0,0.06);
+}
+
+.choose-card i{
+font-size:2.5rem;
+color:var(--accent);
+margin-bottom:25px;
+}
+
+.choose-card h3{
+margin-bottom:15px;
+color:var(--primary);
+}
+
+/* TEAM */
+
+.team{
+padding:110px 7%;
+background:#f8fafc;
+}
+
+.team-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+}
+
+.team-card{
+background:white;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,0.06);
+transition:0.4s;
+}
+
+.team-card:hover{
+transform:translateY(-10px);
+}
+
+.team-img{
+height:320px;
+overflow:hidden;
+}
+
+.team-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+.team-card:hover img{
+transform:scale(1.08);
+}
+
+.team-content{
+padding:30px;
+text-align:center;
+}
+
+.team-content h3{
+margin-bottom:8px;
+color:var(--primary);
+}
+
+.team-content p{
+color:#64748b;
+margin-bottom:20px;
+}
+
+/* FAQ */
+
+.faq{
+padding:110px 7%;
+background:white;
+}
+
+.faq-container{
+max-width:900px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.faq-item{
+background:#f8fafc;
+border-radius:18px;
+padding:25px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.faq-item:hover{
+background:#eef6ff;
+}
+
+.faq-question{
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:600;
+color:var(--primary);
+}
+
+.faq-answer{
+max-height:0;
+overflow:hidden;
+transition:0.4s;
+line-height:1.8;
+color:#64748b;
+}
+
+.faq-item.active .faq-answer{
+max-height:300px;
+padding-top:20px;
+}
+
+/* MAP */
+
+.map{
+padding:0 7% 110px;
+background:white;
+}
+
+.map iframe{
+width:100%;
+height:500px;
+border:none;
+border-radius:30px;
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* CTA */
+
+.cta{
+padding:120px 7%;
+background:linear-gradient(135deg,#0f172a,#1e40af);
+text-align:center;
+color:white;
+position:relative;
+overflow:hidden;
+}
+
+.cta h2{
+font-size:3rem;
+margin-bottom:25px;
+}
+
+.cta p{
+max-width:700px;
+margin:auto;
+line-height:1.9;
+margin-bottom:40px;
+color:#dbeafe;
+}
+
+/* FOOTER */
+
+footer{
+background:#020617;
+padding:80px 7% 40px;
+color:white;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:50px;
+margin-bottom:50px;
+}
+
+.footer-col h3{
+margin-bottom:25px;
+color:var(--accent);
+}
+
+.footer-col p,
+.footer-col a{
+line-height:2;
+color:#cbd5e1;
+text-decoration:none;
+display:block;
+transition:0.3s;
+}
+
+.footer-col a:hover{
+color:var(--accent);
+padding-left:5px;
+}
+
+.footer-bottom{
+border-top:1px solid rgba(255,255,255,0.08);
+padding-top:25px;
+text-align:center;
+color:#94a3b8;
+}
+
+/* FLOAT BUTTON */
+
+.whatsapp-float{
+position:fixed;
+bottom:30px;
+right:30px;
+width:65px;
+height:65px;
+background:#25d366;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:1.8rem;
+text-decoration:none;
+box-shadow:0 10px 30px rgba(37,211,102,0.4);
+z-index:999;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.08);
+}
+100%{
+transform:scale(1);
+}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.contact-wrapper{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:3rem;
+}
+
+}
+
+@media(max-width:768px){
+
+.nav-links{
+display:none;
+}
+
+.hero h1{
+font-size:2.4rem;
+}
+
+.section-title h2{
+font-size:2.2rem;
+}
+
+.contact-form{
+padding:35px 25px;
+}
+
+}
+
 </style>
 </head>
+
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
-    <a href="index.html" class="logo">Tech<span>Mitra</span></a>
+
+<a href="index.html" class="logo">
+Ma<span>Tech.ai</span>
+</a>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#team">Team</a></li>
+<li><a href="#faq">FAQ</a></li>
+
+</ul>
+
 </nav>
 
-<div class="container">
+<!-- HERO -->
 
-    <!-- 1. Founder Details -->
-    <section class="founders-section">
-        <h2 class="section-title">Meet Our Founders</h2>
-        <div class="founders-grid">
-            <div class="founder-card">
-                <img src="images/me.jpg" alt="Subhash Kumar">
-                <h3>Subhash Kumar</h3>
-                <p>Project Head</p>
-            </div>
-            <div class="founder-card">
-                <img src="images/ma.jpg" alt="XXXX">
-                <h3>XXXX</h3>
-                <p>Technical Strategy Head</p>
-            </div>
-        </div>
-    </section>
+<section class="hero">
 
-    <!-- 2. Contact Cards & Social Media -->
-    <section class="contact-social-section">
-        <h2 class="section-title">Direct Connect</h2>
-        <div class="connect-grid">
-            <div class="info-cards">
-                <div class="info-card">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <strong>Call Us</strong>
-                        <p>+91 919871976421</p>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email</strong>
-                        <p>info@techmitrasolutions.com</p>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Location</strong>
-                        <p>Saharsa | Samastipur | Darbhanga</p>
-                    </div>
-                </div>
-            </div>
+<div class="hero-content">
 
-            <div class="social-box">
-                <p>Chat with us for instant support</p>
-                <a href="https://wa.me/919871976421" class="social-btn whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="https://instagram.com/techmitra" class="social-btn instagram">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-            </div>
-        </div>
-    </section>
+<h1>
+Let's Build Something Amazing Together
+</h1>
 
-    <!-- 3. Form Section -->
-    <section class="form-section">
-        <div class="form-img"></div>
-        <div class="form-container">
-            <h2 style="margin-bottom: 20px;">Send a Message</h2>
-            <form id="contactForm" onsubmit="sendEmail(event)">
-                <div class="form-group"><input type="text" id="name" placeholder="Full Name" required></div>
-                <div class="form-group"><input type="email" id="email" placeholder="Email Address" required></div>
-                <div class="form-group"><textarea id="message" rows="4" placeholder="Your Query..."></textarea></div>
-                <button type="submit" class="submit-btn">Submit Inquiry</button>
-            </form>
-            <div id="successMsg" style="display:none; color: green; margin-top:10px; font-weight:bold;">✅ Message Sent!</div>
-        </div>
-    </section>
+<p>
+Connect with MaTech.ai for modern websites,
+ERP systems, AI automation, healthcare platforms,
+e-commerce ecosystems, and enterprise digital solutions.
+</p>
 
-    <!-- 4. Feedback System -->
-    <section class="feedback-section">
-        <h2 class="section-title">Client Feedback</h2>
-        <div class="feedback-display" id="feedbackList">
-            <div class="feedback-note">
-                <p><b>Amit Gupta:</b> "TechMitra team helped me scale my e-commerce business. Great service!"</p>
-            </div>
-        </div>
+<div class="hero-btns">
 
-        <h3>Leave Your Experience</h3>
-        <form id="feedbackForm" style="margin-top: 15px;">
-            <div class="form-group"><input type="text" id="fbName" placeholder="Your Name" required></div>
-            <div class="form-group"><textarea id="fbMsg" placeholder="Write your feedback..." required></textarea></div>
-            <button type="submit" class="submit-btn" style="width: auto; padding: 12px 30px;">Post Feedback</button>
-        </form>
-    </section>
+<a href="#contact" class="btn btn-primary">
+<i class="fas fa-paper-plane"></i>
+Start Project
+</a>
+
+<a href="#team" class="btn btn-outline">
+<i class="fas fa-users"></i>
+Meet Team
+</a>
 
 </div>
 
-<footer style="text-align: center; padding: 40px; background: #2c3e50; color: white;">
-    <p>&copy; 2026 TechMitra Solutions | All Rights Reserved</p>
+</div>
+
+</section>
+
+<!-- CONTACT INFO -->
+
+<section class="contact-info">
+
+<div class="section-title">
+
+<h2>Direct Communication</h2>
+
+<p>
+Reach out through multiple channels for instant support,
+project consultation, or business collaboration.
+</p>
+
+</div>
+
+<div class="info-grid">
+
+<div class="info-card">
+
+<div class="info-icon">
+<i class="fas fa-phone-alt"></i>
+</div>
+
+<h3>Call Us</h3>
+
+<p>
++91 9871976421
+<br>
+Mon - Sat | 9AM - 8PM
+</p>
+
+</div>
+
+<div class="info-card">
+
+<div class="info-icon">
+<i class="fas fa-envelope"></i>
+</div>
+
+<h3>Email Address</h3>
+
+<p>
+subhash@matech.ai
+<br>
+subhash@matech.ai
+</p>
+
+</div>
+
+<div class="info-card">
+
+<div class="info-icon">
+<i class="fas fa-location-dot"></i>
+</div>
+
+<h3>Office Location</h3>
+
+<p>
+Bihar, India
+<br>
+Remote & On-site Services
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact-section" id="contact">
+
+<div class="section-title">
+
+<h2>Send Us A Message</h2>
+
+<p>
+Tell us about your business requirements and
+our team will contact you shortly.
+</p>
+
+</div>
+
+<div class="contact-wrapper">
+
+<!-- FORM -->
+
+<div class="contact-form">
+
+<div class="form-title">
+
+<h3>Project Inquiry Form</h3>
+
+<p>
+Fill out the details below.
+</p>
+
+</div>
+
+<form id="contactForm">
+
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" class="form-control" placeholder="Enter your full name" required>
+</div>
+
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" class="form-control" placeholder="Enter your email" required>
+</div>
+
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" class="form-control" placeholder="Enter phone number">
+</div>
+
+<div class="form-group">
+<label>Select Service</label>
+
+<select class="form-control">
+
+<option>Education ERP</option>
+<option>Healthcare System</option>
+<option>E-commerce Platform</option>
+<option>AI Automation</option>
+<option>Business Website</option>
+<option>Custom Software</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Project Budget</label>
+
+<select class="form-control">
+
+<option>Startup Budget</option>
+<option>Medium Business</option>
+<option>Enterprise Level</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Project Details</label>
+
+<textarea class="form-control"
+placeholder="Describe your project requirements..."></textarea>
+</div>
+
+<button type="submit" class="submit-btn">
+
+<i class="fas fa-paper-plane"></i>
+Submit Inquiry
+
+</button>
+
+</form>
+
+</div>
+
+<!-- SIDE -->
+
+<div class="contact-side">
+
+<div class="side-card">
+
+<h3>Business Hours</h3>
+
+<p>
+Monday - Saturday : 9:00 AM - 8:00 PM
+<br><br>
+Sunday : Emergency Support Only
+</p>
+
+</div>
+
+<div class="side-card">
+
+<h3>Why Choose MaTech.ai?</h3>
+
+<p>
+✔ Modern UI/UX Design
+<br><br>
+✔ Secure Architecture
+<br><br>
+✔ Scalable Systems
+<br><br>
+✔ 24/7 Technical Support
+<br><br>
+✔ Industry-Level Development
+</p>
+
+</div>
+
+<div class="side-card">
+
+<h3>Connect Socially</h3>
+
+<p>
+Follow our social channels and stay updated.
+</p>
+
+<div class="social-links">
+
+<a href="https://wa.me/919871976421"
+target="_blank">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<a href="https://www.instagram.com/subhash__sharma01?igsh=eWFyc3M0aWQyZnR5"><i class="fab fa-instagram"></i></a>
+
+<a href="https://www.linkedin.com/in/subhash-kumar-98a268300?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+
+<a href="https://github.com/sharmasubhash8084-png/techmitra-solutions"><i class="fab fa-github"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- WHY CHOOSE -->
+
+<section class="choose">
+
+<div class="section-title">
+
+<h2>Why Businesses Trust Us</h2>
+
+<p>
+We focus on scalable development,
+modern architecture, and business growth.
+</p>
+
+</div>
+
+<div class="choose-grid">
+
+<div class="choose-card">
+
+<i class="fas fa-rocket"></i>
+
+<h3>Fast Delivery</h3>
+
+<p>
+Optimized workflows ensure faster deployment and project delivery timelines.
+</p>
+
+</div>
+
+<div class="choose-card">
+
+<i class="fas fa-shield-alt"></i>
+
+<h3>Secure Systems</h3>
+
+<p>
+We develop highly secure applications with industry-standard practices.
+</p>
+
+</div>
+
+<div class="choose-card">
+
+<i class="fas fa-code"></i>
+
+<h3>Modern Technology</h3>
+
+<p>
+Built with scalable modern frameworks and cloud-ready infrastructure.
+</p>
+
+</div>
+
+<div class="choose-card">
+
+<i class="fas fa-headset"></i>
+
+<h3>24/7 Support</h3>
+
+<p>
+Dedicated technical assistance and maintenance support for clients.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TEAM -->
+
+<section class="team" id="team">
+
+<div class="section-title">
+
+<h2>Meet Our Leadership</h2>
+
+<p>
+Professional minds behind innovative digital solutions.
+</p>
+
+</div>
+
+<div class="team-grid">
+
+<div class="team-card">
+
+<div class="team-img">
+
+<img src="images/me.jpg">
+
+</div>
+
+<div class="team-content">
+
+<h3>Subhash Kumar</h3>
+
+<p>Project & Innovation Head</p>
+
+<div class="social-links" style="justify-content:center;">
+
+<a href="https://www.linkedin.com/in/subhash-kumar-98a268300?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.instagram.com/subhash__sharma01?igsh=eWFyc3M0aWQyZnR5"><i class="fab fa-instagram"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="team-card">
+
+<div class="team-img">
+
+<img src="images/ma.jpg">
+
+</div>
+
+<div class="team-content">
+
+<h3>Technical Strategy Lead</h3>
+
+<p>System Architecture & AI Solutions</p>
+
+<div class="social-links" style="justify-content:center;">
+
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="faq" id="faq">
+
+<div class="section-title">
+
+<h2>Frequently Asked Questions</h2>
+
+<p>
+Everything clients usually ask before starting a project.
+</p>
+
+</div>
+
+<div class="faq-container">
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+<span>How long does project development take?</span>
+
+<i class="fas fa-plus"></i>
+
+</div>
+
+<div class="faq-answer">
+
+Project timelines depend on complexity.
+Most startup projects take 2-6 weeks while enterprise solutions may require longer.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+<span>Do you provide maintenance support?</span>
+
+<i class="fas fa-plus"></i>
+
+</div>
+
+<div class="faq-answer">
+
+Yes. We provide AMC support,
+hosting management, security updates,
+and future feature upgrades.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+<span>Can systems scale in the future?</span>
+
+<i class="fas fa-plus"></i>
+
+</div>
+
+<div class="faq-answer">
+
+Absolutely. All systems are designed with scalable architecture
+for future upgrades and growing traffic.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MAP -->
+
+<section class="map">
+
+<div class="section-title">
+
+<h2>Our Location</h2>
+
+<p>
+Serving clients across India with remote and on-site support.
+</p>
+
+</div>
+
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18"
+loading="lazy">
+</iframe>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>Ready To Start Your Project?</h2>
+
+<p>
+Let's transform your business with modern technology,
+AI automation, enterprise software, and scalable digital solutions.
+</p>
+
+<a href="contact.html" class="btn btn-primary">
+
+<i class="fas fa-arrow-right"></i>
+Get Started Today
+
+</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-col">
+
+<h3>MaTech.ai</h3>
+
+<p>
+Professional digital solutions company focused on ERP systems,
+AI automation, healthcare platforms, and business applications.
+</p>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Services</h3>
+
+<a href="#">Education ERP</a>
+<a href="#">Healthcare Systems</a>
+<a href="#">E-commerce Platforms</a>
+<a href="#">Business Automation</a>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Technologies</h3>
+
+<a href="#">React.js</a>
+<a href="#">Python Flask</a>
+<a href="#">Node.js</a>
+<a href="#">MongoDB</a>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Contact Info</h3>
+
+<p>Email : subhash@matech.ai</p>
+<p>Phone : +91 9871976421</p>
+<p>India</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+© 2026 MaTech.ai. All Rights Reserved.
+</p>
+
+</div>
+
 </footer>
 
-<script>
-// EmailJS Logic
-(function(){ emailjs.init("YOUR_PUBLIC_KEY"); })();
+<!-- FLOAT -->
 
-function sendEmail(e) {
-    e.preventDefault();
-    emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
-        from_name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        message: document.getElementById("message").value
-    }).then(() => {
-        document.getElementById("successMsg").style.display = "block";
-        document.getElementById("contactForm").reset();
-    });
+<a href="https://wa.me/919871976421"
+class="whatsapp-float"
+target="_blank">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<!-- JS -->
+
+<script>
+
+/* FAQ */
+
+const faqItems=document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item=>{
+
+item.addEventListener('click',()=>{
+
+item.classList.toggle('active');
+
+});
+
+});
+
+/* FORM */
+
+document.getElementById('contactForm')
+.addEventListener('submit',function(e){
+
+e.preventDefault();
+
+alert('Inquiry Submitted Successfully!');
+
+this.reset();
+
+});
+
+/* SCROLL ANIMATION */
+
+const reveal=document.querySelectorAll(
+'.info-card,.choose-card,.team-card,.side-card'
+);
+
+window.addEventListener('scroll',()=>{
+
+reveal.forEach(el=>{
+
+let top=el.getBoundingClientRect().top;
+
+if(top<window.innerHeight-80){
+
+el.style.opacity='1';
+el.style.transform='translateY(0px)';
+
 }
 
-// Feedback Logic
-document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('fbName').value;
-    const msg = document.getElementById('fbMsg').value;
-
-    const div = document.createElement('div');
-    div.className = 'feedback-note';
-    div.innerHTML = `<p><b>${name}:</b> "${msg}"</p>`;
-
-    document.getElementById('feedbackList').appendChild(div);
-    this.reset();
 });
+
+});
+
+reveal.forEach(el=>{
+
+el.style.opacity='0';
+el.style.transform='translateY(50px)';
+el.style.transition='all 0.7s ease';
+
+});
+
 </script>
 
 </body>
